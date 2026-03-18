@@ -1,0 +1,222 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   SUGANDH SHRI — SANDALWOOD LUXURY DESIGN SYSTEM
+   Brown:      #6A4E42  Primary / buttons / headings
+   Ivory:      #F5F1E9  Page background
+   Beige:      #E8D9C5  Cards / section backgrounds
+   Gold:       #C6A75A  Accents / prices / highlights only
+   Deep Earth: #2F2523  Footer / dark sections
+   Fonts:      Cinzel (headings) · Lora (body)
+   ============================================================ */
+
+:root {
+  --brown:        #6A4E42;
+  --brown-dark:   #4A3228;
+  --brown-deeper: #2F2523;
+  --brown-light:  #8B6655;
+  --brown-muted:  #A08070;
+  --ivory:        #F5F1E9;
+  --ivory-dark:   #EDE6D8;
+  --beige:        #E8D9C5;
+  --beige-dark:   #D4C4AA;
+  --gold:         #C6A75A;
+  --gold-light:   #E8D5A3;
+  --gold-dark:    #9A7A2E;
+  --text-main:    #2F2523;
+  --text-muted:   #6A4E42;
+  --text-light:   #A08070;
+  --shadow-sm:    0 2px 12px rgba(106,78,66,0.08);
+  --shadow-md:    0 6px 28px rgba(106,78,66,0.13);
+  --shadow-lg:    0 16px 48px rgba(106,78,66,0.18);
+  --shadow-xl:    0 24px 72px rgba(106,78,66,0.22);
+  --ease:         cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out:     cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --radius-sm:    4px;
+  --radius:       8px;
+  --radius-lg:    12px;
+}
+
+/* ── Reset ─────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background: var(--ivory);
+  color: var(--text-main);
+  font-family: 'Lora', Georgia, serif;
+  font-size: 16px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  padding-top: 38px; /* announcement bar */
+}
+
+/* ── Typography ────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
+  color: var(--brown-deeper);
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+}
+p {
+  font-family: 'Lora', serif;
+  color: var(--text-muted);
+  line-height: 1.85;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+/* ── Scrollbar ─────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--ivory-dark); }
+::-webkit-scrollbar-thumb { background: var(--brown-light); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--brown); }
+* { scrollbar-width: thin; scrollbar-color: var(--brown-light) var(--ivory-dark); }
+
+/* ── Selection ─────────────────────────────────── */
+::selection { background: rgba(198,167,90,0.2); color: var(--text-main); }
+
+/* ── Custom cursor (desktop only) ─────────────── */
+@media (pointer: fine) {
+  *, *::before, *::after { cursor: none !important; }
+  input, textarea, select { cursor: text !important; }
+}
+
+/* ── Inputs ────────────────────────────────────── */
+input, textarea, select {
+  font-family: 'Lora', serif;
+  background: var(--ivory);
+  border: 1.5px solid var(--beige-dark);
+  color: var(--text-main);
+  padding: 12px 16px;
+  font-size: 14px;
+  border-radius: var(--radius-sm);
+  outline: none;
+  width: 100%;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+input:focus, textarea:focus, select:focus {
+  border-color: var(--brown);
+  box-shadow: 0 0 0 3px rgba(106,78,66,0.1);
+}
+input::placeholder, textarea::placeholder { color: var(--text-light); font-style: italic; }
+option { background: var(--ivory); color: var(--text-main); }
+input[type="range"] {
+  -webkit-appearance: none; appearance: none;
+  height: 3px; background: var(--beige-dark);
+  border: none; padding: 0; border-radius: 2px;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px; height: 16px; border-radius: 50%;
+  background: var(--brown); border: 2px solid var(--ivory);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ── Utility classes ───────────────────────────── */
+.section-tag {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  letter-spacing: 5px;
+  color: var(--gold);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 14px;
+}
+.gold-rule {
+  width: 48px; height: 1.5px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  display: block;
+  border-radius: 1px;
+}
+.gold-rule-center { margin: 0 auto; }
+
+/* ── Buttons ───────────────────────────────────── */
+.btn-primary {
+  display: inline-block;
+  background: var(--brown);
+  color: var(--ivory);
+  border: none;
+  padding: 14px 40px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  border-radius: var(--radius-sm);
+  transition: background 0.4s var(--ease), box-shadow 0.4s, transform 0.2s;
+  box-shadow: var(--shadow-sm);
+  cursor: none;
+}
+.btn-primary:hover {
+  background: var(--brown-dark);
+  box-shadow: var(--shadow-md);
+}
+.btn-outline {
+  display: inline-block;
+  background: transparent;
+  color: var(--brown);
+  border: 1.5px solid var(--brown);
+  padding: 13px 38px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  border-radius: var(--radius-sm);
+  transition: all 0.4s var(--ease);
+  cursor: none;
+}
+.btn-outline:hover {
+  background: var(--brown);
+  color: var(--ivory);
+  box-shadow: var(--shadow-md);
+}
+
+/* ── Keyframes ─────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes particleRise {
+  0%   { transform: translateY(0) rotate(0deg); opacity: 0; }
+  10%  { opacity: 0.5; }
+  90%  { opacity: 0.1; }
+  100% { transform: translateY(-80vh) rotate(360deg); opacity: 0; }
+}
+@keyframes shimmerGold {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+@keyframes scrollPulse {
+  0%, 100% { transform: scaleY(1); opacity: 0.7; }
+  50%       { transform: scaleY(0.4); opacity: 0.2; }
+}
+@keyframes dotPulse {
+  0%, 100% { opacity: 0.2; transform: scale(0.8); }
+  50%       { opacity: 1; transform: scale(1.2); }
+}
+
+/* ── Mobile base adjustments ───────────────────── */
+@media (max-width: 768px) {
+  body { padding-top: 38px; font-size: 15px; }
+  h1 { font-size: clamp(26px, 8vw, 44px) !important; }
+  h2 { font-size: clamp(20px, 6vw, 34px) !important; }
+}
